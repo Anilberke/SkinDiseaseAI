@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>User Registration</title>
+    <link rel="icon" href="images/6025105.png">
+    <style>
+        /* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9; /* Light gray background */
+            color: #333; /* Dark text for readability */
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        header {
+            background-color: #FF416C; /* Header color */
+            padding: 20px 10px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        header .logo img {
+            height: 60px;
+        }
+
+        nav {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: white;
+            margin: 0 15px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        /* Form Styles */
+        .form-container {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 800px;
+            margin: 50px auto;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 36px;
+            margin: 20px 0;
+        }
+
+        .form-column {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input,
+        select {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .btn {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: #FF416C;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .btn:hover {
+            background-color: #e04f2d;
+        }
+
+        .footer {
+            text-align: center;
+            background-color: #333;
+            color: white;
+            padding: 10px;
+            margin-top: auto; /* Push footer to the bottom */
+            width: 100%;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+        }
+
+        footer p {
+            margin: 0;
+            font-size: 14px;
+        }
+
+        .kvkk {
+    margin: 50px 0;
+    font-size: 18px; /* KVKK metni için büyütülmüş yazı boyutu */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.kvkk input {
+    width: 25px; /* Checkbox boyutu */
+    height: 25px; /* Checkbox boyutu */
+    margin-right: 15px; /* Checkbox ile metin arasındaki mesafe */
+}
+
+.kvkk label {
+    font-weight: bold; /* KVKK metni için kalın yazı */
+}
+
+.kvkk a {
+    color: #FF416C; /* Link rengi */
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.kvkk a:hover {
+    text-decoration: underline; /* Link üzerine gelindiğinde alt çizgi */
+}
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            nav {
+                justify-content: center;
+                margin-top: 10px;
+            }
+
+            nav a {
+                margin: 10px;
+                font-size: 16px;
+            }
+
+            .form-container {
+                padding: 20px;
+                width: 90%; /* Make form width smaller on mobile */
+                max-width: 400px; /* Limit form size on mobile */
+            }
+
+            h1 {
+                font-size: 28px;
+            }
+
+            .btn {
+                padding: 12px;
+                font-size: 16px;
+            }
+        }
+
+        /* Small mobile devices */
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 24px;
+            }
+
+            .btn {
+                padding: 12px;
+                font-size: 14px;
+            }
+
+            .form-column {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header class="header">
+        <a href="home.html" class="logo">
+            <img src="images/6025105.png" alt="Logo">
+        </a>
+        <nav class="navbar">
+            <a href="home.html">Homepage</a>
+            <a href="login.html">Sign In</a>
+        </nav>
+    </header>
+
+    <section class="main-form">
+        <h1>User Registration</h1>
+
+        <div class="form-container">
+            <form id="registerForm">
+                <div class="form-column">
+                    <label for="name">First Name:</label>
+                    <input type="text" id="name" required>
+
+                    <label for="surname">Last Name:</label>
+                    <input type="text" id="surname" required>
+
+                    <label for="phone">Phone Number:</label>
+                    <input type="tel" id="phone" required>
+
+                    <label for="email">E-mail:</label>
+                    <input type="email" id="email" required>
+
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" required>
+
+                    <label for="gender">Gender:</label>
+                    <select id="gender" required>
+                        <option value="">Select</option>
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+
+                <div class="form-column">
+                    <label for="bloodType">Blood Type:</label>
+                    <select id="bloodType" required>
+                        <option value="">Select</option>
+                        <option value="A+">A+</option>
+                        <option value="A-">A-</option>
+                        <option value="B+">B+</option>
+                        <option value="B-">B-</option>
+                        <option value="AB+">AB+</option>
+                        <option value="AB-">AB-</option>
+                        <option value="O+">O+</option>
+                        <option value="O-">O-</option>
+                    </select>
+
+                    <label for="birthDate">Date of Birth:</label>
+                    <input type="date" lang="en" id="birthDate" value="dd-MM-yyyy" required>
+
+                    <label for="tcNo">ID Number:</label>
+                    <input type="text" id="tcNo" required>
+
+                    <label for="weight">Weight (kg):</label>
+                    <input type="number" id="weight" required>
+
+                    <label for="height">Height (cm):</label>
+                    <input type="number" id="height" required>
+                </div>
+
+                <div class="kvkk">
+                    <input type="checkbox" id="kvkk" required>
+                    <label for="kvkk">I have read and agree to the <a href="https://www.kvkk.gov.tr/Icerik/6649/Personal-Data-Protection-Law" target="_blank">KVKK terms and conditions</a></label>
+                </div>
+
+                <button type="submit" class="btn">Submit</button>
+            </form>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <p>© 2024 Professor X | All rights reserved.</p>
+    </footer>
+
+    <script src="register.js"></script>
+</body>
+
+</html>

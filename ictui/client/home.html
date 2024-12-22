@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Professor X</title>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="images/6025105.png">
+    <style>
+    .spinner-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(255, 255, 255, 0.8);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 9999;
+        display: none;
+    }
+
+    .spinner {
+        width: 60px;
+        height: 60px;
+    }
+    </style>
+
+</head>
+
+<body>
+
+    <header class="header">
+      <a href="home.html" class="logo">
+        <img src="images/6025105.png" alt="logo" style="vertical-align: middle;">
+        <span class="logo-text" style="font-size: 20px; font-family: 'Poppins', sans-serif; color: #363330; position: relative; top: 6px; left: 20px;">  Professor X: AI-Powered Diagnosis & Chat Support Tailored to You !</span>
+      </a>
+
+        <nav class="navbar">
+            
+            <a href="login.html" id="login-link">Sign In</a>
+            <a href="home.html" id="logout-link" style="display: none;">Log Out</a>
+        </nav>
+    </header>
+
+    <section class="main" id="main">
+        <div class="content">
+            <h3>Helping individuals understand their concerns and aiding doctors in precise patient care.</h3>
+            <br>
+            
+            <h3>AI-Powered Skin Health for Patients and Practitioners.</h3>
+            <br>
+            
+            <h3>Check Your Assistant!</h3>
+
+            <a href="ConversationOptions.html" class="btn" id="start-chat-btn">Start Conversation!</a>
+            
+        </div>
+    </section>
+
+    <div id="spinner" class="spinner-overlay">
+        <img src="spinner.gif" alt="Loading..." class="spinner">
+    </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const spinner = document.getElementById("spinner");
+            spinner.style.display = "flex";
+
+            window.addEventListener("load", function() {
+                spinner.style.display = "none";
+            });
+
+            window.addEventListener("beforeunload", function() {
+                spinner.style.display = "flex";
+            });
+
+            window.addEventListener("pageshow", function(event) {
+                if (event.persisted) {
+                    spinner.style.display = "none";
+                }
+            });
+        });
+        const token = localStorage.getItem('access_token');
+        const loginLink = document.getElementById('login-link');
+        const startChatBtn = document.getElementById('start-chat-btn');
+        const logoutLink = document.getElementById('logout-link');
+
+        if (token) {
+            loginLink.textContent = 'Assistant';
+            loginLink.href = 'ConversationOptions.html';
+
+            startChatBtn.textContent = 'Start Conversation!';
+            startChatBtn.href = 'ConversationOptions.html';
+
+            logoutLink.style.display = 'inline';
+        } else {
+            startChatBtn.textContent = 'Sign Up';
+            startChatBtn.href = 'register.html';
+        }
+
+        logoutLink.addEventListener('click', function(event) {
+            event.preventDefault();
+            if (confirm('Do you want to log out?')) {
+                localStorage.removeItem('access_token');
+                window.location.href = 'home.html';
+            }
+        });
+    </script>
+</body>
+
+</html>

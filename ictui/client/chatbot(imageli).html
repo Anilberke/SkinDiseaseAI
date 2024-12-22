@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assistant</title>
+    <link rel="stylesheet" href="chat.css">
+    <link rel="icon" href="images/6025105.png">
+    <link href="https://fonts.googleapis.com/css2?family=Italianno&display=swap" rel="stylesheet">
+    <style>
+    .spinner-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(255, 255, 255, 0.8);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 9999;
+        display: none; /* Initially hidden */
+    }
+
+    .spinner {
+        width: 60px;
+        height: 60px;
+    }
+    </style>
+</head>
+<body>
+    <div id="spinner" class="spinner-overlay">
+        <img src="spinner.gif" alt="Loading..." class="spinner">
+    </div>
+
+    <section class="side-bar">
+
+        <button id="new-chat-btn" class="new-chat">
+            <span id="new-chat-text">New Chat</span>
+        </button>
+        <div class="chat-history">
+            
+            <div id="chat-history-buttons">
+                <!-- Chat history buttons will be populated dynamically -->
+            </div>
+        </div>
+        
+        <nav>
+            <p>Made By <a href="https://github.com/kaanyvz" target="_blank">Team Professor X</a></p>
+            <p>Professor X can make mistakes. Seek advice from medical experts</p>
+        </nav>
+    </section>
+
+    <div class="main-content">
+        <header class="header">
+            <a href="home.html#main" class="logo">
+                <img src="images/6025105.png" alt="logo">
+            </a>
+            <nav class="navbar">
+                <a href="ConversationOptions.html" id="active">Conversation Options</a>
+                <a href="#" id="logout-link">Logout</a>
+            </nav>
+        </header>
+        <div class="chat-section">
+            <div class="chat-history" id="chat-history">
+
+                <div id="loading-message" style="display: none;">
+                    <img src="spinner.gif" alt="Loading..." width="80" height="80">
+                </div>
+
+                <!-- Chat history will be populated dynamically -->
+                <div id="chat-conversation">
+                    <!-- Chat conversation will be populated dynamically -->
+                </div>
+
+            </div>
+            <div class="input-section">
+                <!-- Image Name Display -->
+                <div id="image-name-display" style="display: none; margin-bottom: 10px;"></div>
+
+
+                 <!-- Attach Photos Button -->
+               <div class="input-controls">
+        <!-- Attach Photos Button -->
+                    <button id="attach-photo-btn" class="attach-photo-btn" style="background-color: rgba(52,53,65,1);">
+                        <img src="images/pngtree-attachment-icon-design-png-image_1017617.jpg" alt="Attach" title="Attach Photo" width="40" height="40">
+                    </button>
+
+                    <!-- Camera Access Button -->
+                    <button id="access-camera-btn" class="access-camera-btn" style="background-color: rgba(52,53,65,1);">
+                        <img src="images/png-transparent-camera-logo-graphy-camera-text-camera-lens-rectangle-thumbnail.png" alt="Camera" title="Access Camera" width="40" height="40">
+                    </button>
+
+                    <input type="text" id="user-question" placeholder="Type your question here.">
+
+                    <!-- Submit Question Button -->
+                    <button id="get-response-btn" class="get-response-btn">
+                        <span id="get-response-text">Ask</span>
+                        <img id="get-response-spinner" src="spinner.gif" alt="Loading..." style="display: none;" width="20" height="20">
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+     <!-- Camera Modal -->
+    <div id="camera-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <video id="camera-video" autoplay></video>
+            <button id="capture-btn">Capture</button>
+            <canvas id="camera-canvas" style="display: none;"></canvas>
+        </div>
+    </div>
+
+
+    <script src="chatbotImage.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const spinner = document.getElementById("spinner");
+            spinner.style.display = "flex";
+
+            window.addEventListener("load", function() {
+                spinner.style.display = "none";
+            });
+
+            window.addEventListener("beforeunload", function() {
+                spinner.style.display = "flex";
+            });
+
+            window.addEventListener("pageshow", function(event) {
+                if (event.persisted) {
+                    spinner.style.display = "none";
+                }
+            });
+        });
+        document.getElementById('logout-link').addEventListener('click', function(event) {
+            event.preventDefault();
+            if (confirm('Are you sure you want to log out?')) {
+                localStorage.removeItem('access_token');
+                window.location.href = 'home.html';
+            }
+        });
+    </script>
+</body>
+</html>

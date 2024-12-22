@@ -1,0 +1,577 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+:root {
+    --main-color: #0A3D33;
+    --black-color: #121212;
+    --border: 0.1 rem solid rgba(255, 255, 255, 0.4);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
+    border: none;
+    text-decoration: none;
+    transition: 0.3s ease;
+    font-family: "Poppins", sans-serif;
+ }
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: rgba(52,53,65,1);
+    display: flex;
+}
+
+.side-bar {
+    background-color: #202123;
+    width: 500px;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.main-content {
+    overflow: auto;
+    display: flex;
+    width: 100%;
+    height: 100vh;
+    flex-direction: column;
+    text-align: center;
+    align-items: stretch;
+    justify-content: space-between;
+}
+
+.chat-section {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.title1{
+    margin-bottom: 0;
+    color:   #4CAF50;
+    font-size: 15px;
+    width: 100%;
+    height: max-content;
+}
+
+
+.input-section {
+    position: relative;
+    width: 100%;
+    max-width: 100rem;
+    display: flex;
+    align-items: center;
+    gap: 1px; /* Spacing between elements */
+}
+
+.input-section button {
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1px;
+}
+
+.input-section img {
+    display: block;
+}
+
+#attach-photo-btn img,
+#access-camera-btn img {
+    filter: invert(80%); /* Adjust icon color for better visibility */
+    transition: transform 0.2s;
+
+}
+
+#attach-photo-btn:hover img,
+#access-camera-btn:hover img {
+    transform: scale(1.1); /* Slightly enlarge on hover */
+}
+
+.input-section input {
+    flex-grow: 1;
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 1px solid var(--border-color);
+    height: 50px;
+    font-size: 14px;
+    padding-left: 1rem;
+    border-radius: 5px;
+    color: var(--text-color);
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 54px 55px,
+                rgba(0, 0, 0, 0.05) 0px -12px 30px,
+                rgba(0, 0, 0, 0.05) 0px 4px 6px,
+                rgba(0, 0, 0, 0.05) 0px 12px 3px,
+                rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+
+#attach-photo-btn:hover,
+#access-camera-btn:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+}
+
+
+
+.input-section #submit {
+    position: absolute;
+    right: 0;
+    cursor: pointer;
+    bottom: 15px;
+    transform: rotate(90deg);
+}
+
+
+input {
+    background-color: rgba(255, 255, 255, .1);
+    border: none rgba(32, 33, 35, .5);
+    width: 100%;
+    height: 50px;
+    font-size: 14px;
+    padding-left: 1rem;
+    border-radius: 5px;
+    box-shadow: rgba(0, 0, 0, .05) 0px 54px 55px,
+    rgba(0, 0, 0, .05) 0px -12px 30px,
+    rgba(0, 0, 0, .05) 0px 4px 6px,
+    rgba(0, 0, 0, .05) 0px 12px 3px,
+    rgba(0, 0, 0, .09) 0px -3px 5px;
+}
+
+input:focus {
+    outline: none;
+}
+
+
+
+
+
+button {
+    border: solid .5px rgba(255, 255, 255, .2);
+    background-color: transparent;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 10px;
+    color: white
+}
+
+nav {
+    border-top: solid .5px rgba(255, 255, 255, .2);
+    margin: 5px;
+    padding: 5px;
+}
+
+nav a {
+    color: navajowhite;
+}
+
+nav p {
+    text-align: center;
+    color: white;
+}
+
+.chat-history p {
+    cursor: pointer;
+}
+#api-key {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 5px; ;
+    width: 90%;
+    padding: 10px;
+}
+#save-key {
+    margin-bottom: 10px;
+}
+
+#api-key {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 5px;
+    width: 90%;
+    padding: 10px;
+}
+
+#save-key {
+    margin-bottom: 10px;
+}
+
+#new-chat {
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.chat-history {
+    padding: 10px;
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+    height: 650px;
+    overflow-y: auto;
+}
+.chat-history::-webkit-scrollbar {
+    display: none;
+}
+
+
+.chat-history {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.chat-history .chat-item {
+    background-color: rgba(32, 33, 35, 1);
+    color: #fff;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    max-width: 80%;
+    word-wrap: break-word;
+}
+
+.chat-history p {
+    cursor: pointer;
+}
+
+.chat-history select {
+    width: 100%;
+    height: 40px;
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    font-size: 16px;
+    padding: 5px;
+    border: none;
+    outline: none;
+}
+
+.chat-history option {
+    background-color: rgba(32, 33, 35, 1);
+    color: #fff;
+}
+
+#chat-history-dropdown{
+    width: 100%;
+    height: 40px;
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    font-size: 16px;
+    padding: 5px;
+    border: none;
+    outline: none;
+    margin-bottom: 20px;
+
+}
+
+
+.select-wrapper {
+    position: relative;
+}
+
+.select-wrapper::after {
+    content: "\25BC";
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    pointer-events: none;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+
+.input-section {
+    display: flex;
+    align-items: center;
+}
+
+.input-section input[type="text"] {
+    flex: 1;
+    background-color: rgba(255, 255, 255, .1);
+    border: none rgba(32, 33, 35, .5);
+    height: 50px;
+    font-size: 14px;
+    padding-left: 1rem;
+    border-radius: 5px;
+    box-shadow: rgba(0, 0, 0, .05) 0px 54px 55px,
+                rgba(0, 0, 0, .05) 0px -12px 30px,
+                rgba(0, 0, 0, .05) 0px 4px 6px,
+                rgba(0, 0, 0, .05) 0px 12px 3px,
+                rgba(0, 0, 0, .09) 0px -3px 5px;
+    color: white;
+}
+
+.input-section button {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin-left: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.new-chat {
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.new-chat:hover {
+    background-color: #046946;
+}
+
+
+.save-key-btn {
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.save-key-btn:hover {
+    background-color: #046946;
+}
+
+
+.get-response-btn {
+    cursor: pointer;
+}
+
+.get-response-btn:hover {
+    background-color: #0e8d10;
+}
+
+
+.api-key:focus::selection {
+    background: black;
+}
+.button-container {
+    display: flex;
+    align-items: center;
+}
+
+.chat-history-button {
+    background-color:  #0e8d10;
+    color: #ffffff;
+    padding: 10px;
+    border-radius: 5px;
+    margin: 10px;
+    cursor: pointer;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 50%;
+    text-align: left;
+}
+
+
+@media (max-width: 1000px) {
+    .chat-history-button {
+        background-color:  #0e8d10;
+        color: #ffffff;
+
+        padding: 10px;
+        border-radius: 10px;
+
+        cursor: pointer;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        width: 30%;
+        text-align: left;
+    }
+}
+
+
+.chat-history-button:hover {
+    background-color: #046946;
+}
+
+.update-title-button {
+    color: white;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}
+
+
+.update-button-image {
+    width: 20px;
+    height: 20px;
+    filter: invert(1);
+}
+
+.delete-button-image {
+    width: 20px;
+    height: 20px;
+    filter: invert(1);
+}
+
+.delete-button {
+    cursor: pointer;
+}
+
+.delete-button:hover {
+    opacity: 0.7;
+    cursor: pointer;
+}
+
+.update-button {
+    cursor: pointer;
+}
+
+.update-button:hover {
+    opacity: 0.7;
+    cursor: pointer;
+}
+
+.selected-chat-history-button {
+    background-color: #046946;
+}
+
+.blocked {
+  cursor: not-allowed;
+  opacity: 0.5;
+  pointer-events: none;
+  position: relative;
+}
+
+.blocked::before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+  opacity: 0.5;
+  border-radius: 5px;
+}
+
+.blocked::after {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 20px;
+  height: 20px;
+  background-color: #fff;
+  border-radius: 50%;
+  border: 2px solid #ccc;
+}
+
+
+
+
+.header {
+    background-color: #F4F3F0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 7%;
+    margin: 1rem 7%;
+    border-radius: 30rem;
+    box-shadow: 0px 0px 17px -2px rgba(0, 0, 0, 0.75);
+    position: sticky;
+    top: 2rem;
+    z-index: 1000;
+    height: 4.3rem;
+}
+.header .navbar{
+    margin-right: 10%;
+
+}
+
+.header .navbar a {
+    margin: 0 1rem;
+    font-size: 1.6rem;
+    color: var(--black-color);
+    border-bottom: 0.1rem solid transparent;
+}
+.header .navbar #glowing_ensr{
+    padding: 0rem;
+    text-transform: uppercase;
+    color: #fff;
+    background: linear-gradient(to right, #ff5733, #6f33ff, #33a3ff, #33ff79);
+    background-size: 300% 200%;
+    animation: glowing 3s ease-in-out infinite;
+    border-bottom:0;
+    padding-bottom: 0;
+
+}
+@keyframes glowing {
+    0% {
+        background-position: 0 0;
+    }
+    50% {
+        background-position: 100% 0;
+    }
+    100% {
+        background-position: 0 0;
+    }
+}
+
+
+
+.navbar a.active,
+.navbar a:hover {
+    border-color: var(--main-color);
+    padding-bottom: 0.5rem;
+}
+
+
+
+
+.header .navbar a {
+    margin: 0 0.4rem;
+    font-size: 1rem;
+    color: var(--black-color);
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: border-bottom 0.2s ease;
+
+
+}
+.navbar a.active,
+.navbar a:hover {
+    border-color: var(--main-color);
+    padding-bottom: 0.1rem;
+}
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo-text {
+    font-family: 'Italianno', cursive;
+    font-size: 3.5rem;
+    color: var(--main-color);
+    margin-left: 1rem;
+}
+
+.header .logo img{
+    height: 4rem;
+    padding-top: 0.5rem;
+
+}
+
+#glowing_ensr:hover{
+    font-size: 1rem;
+}
+
+.navbar a:hover{
+    border-color:#2b2b2e;
+    border-bottom-width: 0.05rem;
+    padding-bottom: 0.1rem  #121212;
+    transition: padding-bottom 0.3s ease;
+}

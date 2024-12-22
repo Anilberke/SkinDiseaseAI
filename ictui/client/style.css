@@ -1,0 +1,280 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+:root {
+    --main-color: #0A3D33;
+    --black-color: #121212;
+    --border: 0.1 rem solid rgba(255, 255, 255, 0.4);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
+    border: none;
+    text-decoration: none;
+    transition: 0.3s ease;
+    font-family: "Poppins", sans-serif;
+}
+
+html {
+    font-size: 62.5%;
+    overflow-x: hidden;
+    scroll-padding-top: 9rem;
+    scroll-behavior: smooth;
+}
+
+html::-webkit-scrollbar {
+    width: 1rem;
+    background-color: #F4F3F0;
+}
+
+html::-webkit-scrollbar-track {
+    background-color: transparent;
+}
+
+html::-webkit-scrollbar-thumb {
+    border-radius: 3rem;
+    background-color: #121212;
+}
+
+body {
+    background: #dcdcdc;
+}
+
+section {
+    padding: 3.5rem 7%;
+}
+
+.btn {
+    margin-top: 1rem;
+    display: inline-block;
+    padding: 1.5rem 2.75rem;
+    border-radius: 30rem;
+    font-size: 1.7rem;
+    color: var(--main-color);
+    background-color: #FF416C;
+}
+
+.btn:hover {
+    
+    border-radius: 30rem;
+    scale: 1.1;
+}
+
+.heading {
+    color: #F4F3F0;
+    padding: 1rem;
+    text-transform: uppercase;
+    text-align: left;
+    font-size: 4rem;
+    margin-bottom: 2rem;
+    margin-top: 6rem;
+    border-bottom: 0.3rem solid #F4F3F0;
+}
+
+/* header burada başlıyor*/
+.header .logo {
+    margin: 2%;
+}
+
+.header .logo img {
+    height: 7rem;
+    padding-top: 0.5rem;
+}
+
+.header {
+    background-color: #F4F3F0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 7%;
+    margin: 2rem 7%;
+    border-radius: 30rem;
+    box-shadow: 0px 0px 17px -2px rgba(0, 0, 0, 0.75);
+    position: sticky;
+    top: 2rem;
+    z-index: 1000;
+    height: 7rem;
+}
+
+.header .navbar {
+    margin-right: 10%;
+}
+
+.header .navbar a {
+    margin: 0 1rem;
+    font-size: 1.6rem;
+    color: var(--black-color);
+    border-bottom: 0.1rem solid transparent;
+}
+
+.header .navbar #glowing_ensr {
+    padding: 0rem;
+    text-transform: uppercase;
+    color: #fff;
+    background: linear-gradient(to right, #FF416C, #6f33ff, #33a3ff, #33ff79);
+    background-size: 300% 200%;
+    animation: glowing 3s ease-in-out infinite;
+    border-bottom: 0;
+    padding-bottom: 0;
+}
+
+@keyframes glowing {
+    0% {
+        background-position: 0 0;
+    }
+    50% {
+        background-position: 100% 0;
+    }
+    100% {
+        background-position: 0 0;
+    }
+}
+
+.header .navbar #glowing_ensr:hover {
+    position: relative;
+    font-size: 1.7rem;
+}
+
+.navbar a.active,
+.navbar a:hover {
+    border-color: var(--main-color);
+    padding-bottom: 0.5rem;
+}
+
+.main {
+    min-height: 110vh;
+    background: url(images/dermatoloji_upscaled.jpg) no-repeat;
+    background-size: cover;
+    background-position: center;
+    margin-top: -14.5rem;
+    display: flex;
+    align-items: center;
+}
+
+.main .content {
+    max-width: 60rem;
+    padding-bottom: 6rem;
+}
+
+.main .content h3 {
+    font-size: 3rem;
+    color: #FF416C;
+}
+
+.main .content h3 span {
+    font-size: 2.5rem;
+}
+.main .content a {
+    display: flex;
+    margin-top: 2rem;
+    font-size: 2.5rem;
+    width: 30rem;
+    height: 5rem;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+}
+
+.chatbot_section .pointer {
+    position: relative;
+    top: -3.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 30px solid transparent;
+    border-right: 30px solid transparent;
+    border-top: 30px solid #171717;
+    cursor: auto;
+}
+
+.footer {
+    background: #121212;
+    text-align: center;
+    padding: 0;
+}
+
+.footer .icon-link {
+    font-size: 2rem;
+    color: #F4F3F0;
+    padding-right: 1rem;
+    cursor: auto;
+}
+
+.footer .share {
+    margin-top: -1.5rem;
+    margin-bottom: -1rem;
+}
+
+.footer .share a {
+    width: 5rem;
+    height: 5rem;
+    line-height: 5rem;
+    color: #F4F3F0;
+    font-size: 2rem;
+    border-radius: 50%;
+    margin: 0.3rem;
+}
+
+.footer .share a:hover {
+    background-color: #0A3D33;
+}
+
+.footer-logo {
+    width: 50rem;
+    margin: auto;
+    transform: scaleY(0.8);
+}
+
+.footer-logo .caption {
+    color: #F4F3F0;
+    border-bottom: 0.3rem solid #F4F3F0;
+    font-size: 2.2rem;
+    letter-spacing: 0.1rem;
+}
+
+.footer .footer-logo .container {
+    text-align: left;
+}
+
+.footer .footer-logo .container p {
+    color: #F4F3F0;
+    letter-spacing: 0.4rem;
+    font-size: 1.3rem;
+}
+
+.footer .right-side p {
+    display: inline-block;
+}
+
+.footer .left-side {
+    display: inline-block;
+    vertical-align: middle;
+    text-align: left;
+}
+
+.footer .right-side {
+    display: inline-block;
+    vertical-align: middle;
+    text-align: right;
+    padding-left: 5%;
+}
+
+footer {
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+}
+
+
+.footer .credit p {
+    color: #F4F3F0;
+    text-align: center;
+}
+
+.footer .credit {
+    width: 100%;
+}
+
